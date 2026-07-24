@@ -4,6 +4,10 @@ import { fileURLToPath } from "url";
 
 import db from "./db/db.js";
 
+import loginRoute from "./routes/loginRoute.js";
+import apiRoute from "./routes/apiRoute.js";
+import registerRoute from "./routes/registerRoute.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
@@ -26,6 +30,15 @@ app.set("views", path.join(__dirname, "views"));
 // Set static default directory to public/
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+
+app.get("/", (req, res) => {
+    res.redirect("/login");
+})
+
+app.use("/login", loginRoute);
+app.use("/api", apiRoute);
+app.use("/register", registerRoute);
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

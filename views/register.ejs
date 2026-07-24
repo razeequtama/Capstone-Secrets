@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Capstone - Secrets</title>
+    </head>
+    <body>
+        <h1>Secrets</h1>
+        <h2>Register</h2>
+        <form id="register-form" action="/api/auth/register" method="POST">
+            <label for="email">Email</label>
+            <input id="email-input" type="text" name="email" placeholder="Your email address..."> <br>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Your password..."> <br>
+            <button type="submit" id="submit-btn">Register</button>
+        </form>
+
+        <p id="error-message" style="display: none;"></p>
+
+        <p>Already have an account?</p> <a href="/login">Log In!</a>
+
+        <% if (locals.error) { %>
+            <p><%= error %></p>
+        <% } %>
+        
+        <script src="/js/registerJavaScript.js"></script>
+    </body>
+</html>

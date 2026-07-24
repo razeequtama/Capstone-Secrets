@@ -215,12 +215,8 @@ npm install
 ### 3. Create a `.env` file
 
 ```env
-PORT=3000
-
-SESSION_SECRET=
-
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
+DB_NAME=your_database_name
+DB_PASSWORD=your_database_password
 ```
 
 ### 4. Start the development server
@@ -242,6 +238,18 @@ By completing this project, I should understand:
 - OAuth authentication
 - Protected routes
 - Fundamental web application security concepts
+
+---
+
+# Commit Progresses
+
+## Commit 4: Add register feature
+- MVC Status:
+![alt text](<readme_media/Commit 4 - MVC.png>)
+Finsihed feature:
+- Password hashing using bcrypt with 10 salt rounds
+- Email validation
+- Adding credentials to database under "users" tan;e
 
 ---
 
