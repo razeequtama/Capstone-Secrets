@@ -1,0 +1,30 @@
+{
+  "name": "capstone---secrets",
+  "version": "1.0.0",
+  "description": "A simple practice project for learning authentication and authorization by building a website where users can securely store and manage personal secrets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/razeequtama/Capstone-Secrets.git"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/razeequtama/Capstone-Secrets/issues"
+  },
+  "homepage": "https://github.com/razeequtama/Capstone-Secrets#readme",
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.22.0"
+  }
+}

@@ -42,12 +42,16 @@ OAuth users should have the same experience as locally registered users.
 
 ## Tech Stack
 
+- HTML
+- CSS
+- JavaScript
 - Node.js
 - Express
-- PostgreSQL
+- Passport
 - bcrypt
 - Express Session
 - EJS
+- PostgreSQL
 - OAuth 2.0
 
 
