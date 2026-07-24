@@ -12,7 +12,7 @@ export async function register(req, res)
 {
     const {email, password: passwordRaw} = req.body;
     
-    const check_account = check_account_function(email);
+    const check_account = await check_account_function(email);
 
     if(check_account.length > 0)
     {
@@ -23,7 +23,7 @@ export async function register(req, res)
 
     const password = await bcrypt.hash(passwordRaw, saltRounds);
 
-    const register_account = register_account_function(email, password);
+    const register_account = await register_account_function(email, password);
 
     res.redirect("/login");
 }

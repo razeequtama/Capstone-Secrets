@@ -245,10 +245,11 @@ By completing this project, I should understand:
 
 ## Commit 4: Add register feature
 - MVC Status:
-![alt text](<readme_media/Commit 4 - MVC.png>)
+![alt text](<readme_media/Commit 5 - MVC.png>)
 Finsihed feature:
 - Password hashing using bcrypt with 10 salt rounds
 - Email validation
+- Checking if a registered account already exists
 - Adding credentials to database under "users" tan;e
 
 ---
