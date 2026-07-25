@@ -85,6 +85,8 @@ This project is intended to help me learn:
 ```text
 capstone - secrets/
 ├── controller/
+│   ├── apiController.js
+│   ├── loginController.js
 │   └── registerController.js
 ├── db/
 │   ├── db.js
@@ -254,7 +256,7 @@ By completing this project, I should understand:
 # Commit Progresses
 
 ## Commit 4: Add register feature
-What is being finished:
+What is being added/finished:
 - Password hashing using bcrypt with 10 salt rounds
 - Register email validation
 - Adding credentials to database under "users" table
@@ -262,19 +264,19 @@ What is being fixed:
 - 
 
 ## Commit 5: Fix register email check feature
-What is being finished:
+What is being added/finished:
 - Checking if a registered account already exists
 What is being fixed:
 - 
 
 ## Commit 6: Fix register email check feature README.md
-What is being finished:
+What is being added/finished:
 - 
 What is being fixed:
 - Update README.md to include commit 5 changes
 
 ## Commit 7: Add login feature
-What is being finished:
+What is being added/finished:
 - Login feature
 - Send secrets file if login successful
 - Login input validation
@@ -282,11 +284,23 @@ What is being fixed:
 - 
 
 ## Commit 8: Fix README.md structure & database info
-What is being finished:
+What is being added/finished:
 - 
 What is being fixed:
 - Project structure description on README.md file
 - Database info on README.md file
+
+## Commit 9: Fix email validation input on login page
+What is being added/finished:
+- 
+What is being fixed:
+- Added email validation input on login page
+
+## Commit 10: Add password strength detection for registering
+What is being added/finished:
+- A conditional where a password must be a minimum of 8 characters long to ensure security.
+What is being fixed:
+- 
 
 ---
 

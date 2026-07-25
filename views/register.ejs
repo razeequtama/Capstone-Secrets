@@ -12,17 +12,16 @@
             <label for="email">Email</label>
             <input id="email-input" type="text" name="email" placeholder="Your email address..."> <br>
             <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Your password..."> <br>
+            <input id="password-input" type="password" name="password" placeholder="Your password..."><p id="password-detector"></p><br>
             <button type="submit" id="submit-btn">Register</button>
         </form>
 
         <p id="error-message" style="display: none;"></p>
-
-        <p>Already have an account?</p> <a href="/login">Log In!</a>
-
         <% if (locals.error) { %>
             <p style="color: red;"><%= error %></p>
         <% } %>
+
+        <p>Already have an account?</p> <a href="/login">Log In!</a>
         
         <script src="/js/registerJavaScript.js"></script>
     </body>
