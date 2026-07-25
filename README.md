@@ -6,6 +6,11 @@ A simple practice project for learning authentication and authorization by build
 
 ---
 
+# MVC Diagram
+![alt text](<readme_media/Commit 7 - MVC.png>)
+
+---
+
 ## Features
 
 ### Phase 1 — Local Authentication
@@ -242,22 +247,34 @@ By completing this project, I should understand:
 ---
 
 # Commit Progresses
-- MVC Status:
-![alt text](<readme_media/Commit 6 - MVC.png>)
 
 ## Commit 4: Add register feature
-Finsihed feature:
+What is being finished:
 - Password hashing using bcrypt with 10 salt rounds
-- Email validation
+- Register email validation
 - Adding credentials to database under "users" table
+What is being fixed:
+- 
 
 ## Commit 5: Fix register email check feature
-Finsihed feature:
+What is being finished:
 - Checking if a registered account already exists
+What is being fixed:
+- 
 
 ## Commit 6: Fix register email check feature README.md
-Finsihed feature:
+What is being finished:
+- 
+What is being fixed:
 - Update README.md to include commit 5 changes
+
+## Commit 7: Add login feature
+What is being finished:
+- Login feature
+- Send secrets file if login successful
+- Login input validation
+What is being fixed:
+- 
 
 ---
 
