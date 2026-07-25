@@ -7,7 +7,7 @@ A simple practice project for learning authentication and authorization by build
 ---
 
 # MVC Diagram
-![alt text](<readme_media/Commit 7 - MVC.png>)
+![alt text](readme_media/MVC.png)
 
 ---
 
@@ -17,7 +17,7 @@ A simple practice project for learning authentication and authorization by build
 
 - User registration
 - User login
-- Password hashing (bcrypt or Argon2)
+- Password hashing (bcrypt )
 - Session or JWT authentication
 - Protected routes
 - Logout functionality
@@ -57,7 +57,7 @@ OAuth users should have the same experience as locally registered users.
 - Express Session
 - EJS
 - PostgreSQL
-- OAuth 2.0
+- OAuth 1.0
 
 
 ---
@@ -83,27 +83,36 @@ This project is intended to help me learn:
 (May change as the project progresses)
 
 ```text
-secret-vault/
-│
-├── app.js
-├── package.json
-├── .env
-│
-├── routes/
-│   ├── auth.js
-│   └── secrets.js
-│
-├── models/
-│   ├── User.js
-│   └── Secret.js
-│
-├── middleware/
-│   └── auth.js
-│
-├── views/
+capstone - secrets/
+├── controller/
+│   └── registerController.js
+├── db/
+│   ├── db.js
+│   └── queries.js
+├── model/
+│   ├── loginModel.js
+│   └── registerModel.js
 ├── public/
-│
-└── README.md
+│   └── js/
+│       ├── loginJavaScript.js
+│       └── registerJavaScript.js
+├── readme_media/
+│   └── MVC.png
+├── routes/
+│   ├── apiRoute.js
+│   ├── loginRoute.js
+│   └── registerRoute.js
+├── views/
+│   ├── login.ejs
+│   ├── register.ejs
+│   └── secrets.ejs
+├── .gitignore
+├── ERD.png
+├── package.json
+├── package-lock.json
+├── README.md
+└── server.js
+
 ```
 
 ---
@@ -115,12 +124,9 @@ secret-vault/
 
 ```javascript
 {
-  username,
+  user_id PRIMARY KEY,
   email,
-  passwordHash,
-  oauthProvider,
-  oauthId,
-  createdAt
+  password
 }
 ```
 
@@ -128,10 +134,9 @@ secret-vault/
 
 ```javascript
 {
-  userId,
-  content,
-  createdAt,
-  updatedAt
+  secret_id PRIMARY KEY,
+  secret,
+  user_id FOREIGN KEY,
 }
 ```
 
@@ -152,7 +157,7 @@ Login
     ↓
 Verify Password
     ↓
-Create Session/JWT
+Create Session
     ↓
 Access Protected Routes
 ```
@@ -275,6 +280,13 @@ What is being finished:
 - Login input validation
 What is being fixed:
 - 
+
+## Commit 8: Fix README.md structure & database info
+What is being finished:
+- 
+What is being fixed:
+- Project structure description on README.md file
+- Database info on README.md file
 
 ---
 
