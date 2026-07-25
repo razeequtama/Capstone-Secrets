@@ -1,4 +1,5 @@
 const errorMessage = document.getElementById("error-message");
+const emailInput = document.getElementById("email-input");
 const form = document.getElementById("login-form");
 
 form.addEventListener("submit", (e) => {
