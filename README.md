@@ -302,6 +302,12 @@ What is being added/finished:
 What is being fixed:
 - 
 
+## Commit 11: Add insert secret feature
+What is being added/finished:
+- A feature where users can insert their secrets. One of the main features of the project.
+What is being fixed:
+- 
+
 ---
 
 ## License

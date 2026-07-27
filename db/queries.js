@@ -29,3 +29,17 @@ export const CHECK_ACCOUNT =
     FROM users
     WHERE email = $1;
 `;
+
+export const ADD_SECRET =
+`
+    INSERT INTO secret (secret, user_id)
+    VALUES ($1, $2)
+    RETURNING *;
+`
+
+export const VIEW_SECRET =
+`
+    SELECT *
+    FROM secret
+    WHERE user_id = $1;
+`
