@@ -10,7 +10,7 @@ import passport from "./config/passport.js";
 import loginRoute from "./routes/loginRoute.js";
 import apiRoute from "./routes/apiRoute.js";
 import registerRoute from "./routes/registerRoute.js";
-import { renderDashboardPage } from "./controller/dashboardController.js";
+import dashboardRoute from "./routes/dashboardRoute.js";
 import { add_secret } from "./controller/apiController.js";
 
 import dotenv from "dotenv";
@@ -58,13 +58,25 @@ app.get("/", (req, res) => {
     res.redirect("/login");
 })
 
-app.get("/dashboard", renderDashboardPage);
-app.post("/dashboard", add_secret);
-
 app.use("/login", loginRoute);
 app.use("/api", apiRoute);
 app.use("/register", registerRoute);
+app.use("/dashboard", dashboardRoute);
 
+app.post("/logout", (req, res, next) => {
+    req.logout(function(err) {
+        if (err) {
+            return next(err);
+        }
+
+        req.session.destroy(function(err) {
+            if (err) {
+                return next(err);
+            }
+            res.redirect("/login");
+        });
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

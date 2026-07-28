@@ -314,6 +314,12 @@ What is being added/finished:
 What is being fixed:
 - 
 
+## Commit 13: Add log out button that clears a session
+What is being added/finished:
+- A way that users can log out with a button that also erases the session.
+What is being fixed:
+- /dashboard usage in server.js to be set to use the router from routes/dashboardRouter.js
+
 ---
 
 ## License
