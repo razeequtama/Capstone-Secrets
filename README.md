@@ -308,6 +308,12 @@ What is being added/finished:
 What is being fixed:
 - 
 
+## Commit 12: Add session-cookie for user with Passport
+What is being added/finished:
+- A feature where users don't have to login anymore if they already do, until the session time runs out (24 hours)
+What is being fixed:
+- 
+
 ---
 
 ## License

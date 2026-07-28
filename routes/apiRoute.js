@@ -1,12 +1,16 @@
 import express from "express";
 import { add_secret, authenticate_login, register } from "../controller/apiController.js";
+import passport from "../config/passport.js";
 
 const apiRoute = express.Router();
 
-apiRoute.post("/auth/login", authenticate_login);
+//COOKIE IMPLEMENTATION 4: PASSPORT.JS AUTHENTICATION
+apiRoute.post("/auth/login", passport.authenticate("local", {
+    successRedirect: "/dashboard",
+    failureRedirect: "/login",
+  })
+);
 
 apiRoute.post("/auth/register", register);
-
-apiRoute.post("/add", add_secret);
 
 export default apiRoute;
