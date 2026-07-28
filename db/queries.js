@@ -43,3 +43,10 @@ export const VIEW_SECRET =
     FROM secret
     WHERE user_id = $1;
 `
+
+export const DELETE_SECRET =
+`
+    DELETE FROM secret
+    WHERE secret_id = $1 AND user_id = $2
+    RETURNING *;
+`

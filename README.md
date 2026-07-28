@@ -320,6 +320,12 @@ What is being added/finished:
 What is being fixed:
 - /dashboard usage in server.js to be set to use the router from routes/dashboardRouter.js
 
+## Commit 14: Add delete button feature so users can delete
+What is being added/finished:
+- A way that users can delete each of their secret.
+What is being fixed:
+-
+
 ---
 
 ## License

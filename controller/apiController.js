@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import { check_account as check_account_function, register_account as register_account_function} from "../model/registerModel.js";
 import { check_account as check_account_login_function} from "../model/loginModel.js";
-import { add_secret as add_secret_function, view_secret} from "../model/addSecretModel.js";
+import { add_secret as add_secret_function, view_secret, delete_secret as delete_secret_function} from "../model/addSecretModel.js";
 import passport from "../config/passport.js";
 
 const saltRounds = 10;
@@ -66,6 +66,24 @@ export async function add_secret(req, res)
 
     try {
         await add_secret_function(secret, id);
+        res.redirect(303, "/dashboard");
+    } catch (error) {
+        console.error(error);
+        res.redirect(303, "/dashboard");
+    }
+}
+
+export async function delete_secret(req, res)
+{
+    const id = parseInt(req.query.user_id || req.user?.user_id);
+    const secret_id = parseInt(req.query.secret_id);
+
+    if (!id || !secret_id) {
+        return res.redirect(303, "/dashboard");
+    }
+
+    try {
+        await delete_secret_function(secret_id, id);
         res.redirect(303, "/dashboard");
     } catch (error) {
         console.error(error);
