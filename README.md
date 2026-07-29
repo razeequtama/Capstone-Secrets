@@ -84,8 +84,11 @@ This project is intended to help me learn:
 
 ```text
 capstone - secrets/
+├── config/
+│   └── passport.js
 ├── controller/
 │   ├── apiController.js
+│   ├── dashboardController.js
 │   ├── loginController.js
 │   └── registerController.js
 ├── db/
@@ -98,10 +101,13 @@ capstone - secrets/
 │   └── js/
 │       ├── loginJavaScript.js
 │       └── registerJavaScript.js
+│   └── styles/
+│       └── style.css
 ├── readme_media/
 │   └── MVC.png
 ├── routes/
 │   ├── apiRoute.js
+│   ├── dashboardRoute.js
 │   ├── loginRoute.js
 │   └── registerRoute.js
 ├── views/
@@ -256,75 +262,58 @@ By completing this project, I should understand:
 # Commit Progresses
 
 ## Commit 4: Add register feature
-What is being added/finished:
+What is being added/fixed:
 - Password hashing using bcrypt with 10 salt rounds
 - Register email validation
 - Adding credentials to database under "users" table
-What is being fixed:
-- 
 
 ## Commit 5: Fix register email check feature
-What is being added/finished:
+What is being added/fixed:
 - Checking if a registered account already exists
-What is being fixed:
-- 
 
 ## Commit 6: Fix register email check feature README.md
-What is being added/finished:
-- 
-What is being fixed:
+What is being added/fixed:
 - Update README.md to include commit 5 changes
 
 ## Commit 7: Add login feature
-What is being added/finished:
+What is being added/fixed:
 - Login feature
 - Send secrets file if login successful
 - Login input validation
-What is being fixed:
-- 
 
 ## Commit 8: Fix README.md structure & database info
-What is being added/finished:
-- 
-What is being fixed:
+What is being added/fixed:
 - Project structure description on README.md file
 - Database info on README.md file
 
 ## Commit 9: Fix email validation input on login page
-What is being added/finished:
-- 
-What is being fixed:
+What is being added/fixed:
 - Added email validation input on login page
 
 ## Commit 10: Add password strength detection for registering
-What is being added/finished:
+What is being added/fixed:
 - A conditional where a password must be a minimum of 8 characters long to ensure security.
-What is being fixed:
-- 
 
 ## Commit 11: Add insert secret feature
-What is being added/finished:
+What is being added/fixed:
 - A feature where users can insert their secrets. One of the main features of the project.
-What is being fixed:
-- 
 
 ## Commit 12: Add session-cookie for user with Passport
-What is being added/finished:
+What is being added/fixed:
 - A feature where users don't have to login anymore if they already do, until the session time runs out (24 hours)
-What is being fixed:
-- 
 
 ## Commit 13: Add log out button that clears a session
-What is being added/finished:
+What is being added/fixed:
 - A way that users can log out with a button that also erases the session.
-What is being fixed:
 - /dashboard usage in server.js to be set to use the router from routes/dashboardRouter.js
 
 ## Commit 14: Add delete button feature so users can delete
-What is being added/finished:
+What is being added/fixed:
 - A way that users can delete each of their secret.
-What is being fixed:
--
+
+## Commit 15: Add frontend design to website
+What is being added/fixed:
+- Added modern UI frontend design to the website
 
 ---
 

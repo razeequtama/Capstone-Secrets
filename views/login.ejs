@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capstone - Secrets</title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-    <h1>Secrets</h1>
-    <h2>Login</h2>
-    <form id="login-form" action="/api/auth/login" method="POST">
-        <label for="email">Email</label>
-        <input id="email-input" type="text" name="email" placeholder="Your email address..."> <br>
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Your password..."> <br>
-        <button type="submit">Log In</button>
-    </form>
-    <p id="error-message" style="color: red; display: none;"></p>
-    <% if(locals.error){ %>
-        <p style="color: red;"> <%= error %></p>
-    <% } %>
-    <p>Don't have an account?</p> <a href="/register">Register here!</a>
-
+    <div class="container">
+        <h1>Secrets</h1>
+        <h2>Login</h2>
+        <form id="login-form" action="/api/auth/login" method="POST">
+            <label for="email">Email</label>
+            <input id="email-input" type="text" name="email" placeholder="Your email address..."> <br>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Your password..."> <br>
+            <button type="submit">Log In</button>
+        </form>
+        <p id="error-message" style="color: red; display: none;"></p>
+        <% if(locals.error){ %>
+            <p style="color: red;"> <%= error %></p>
+        <% } %>
+        <p>Don't have an account?</p> <a href="/register">Register here!</a>
+    </div>
     <script src="/js/loginJavaScript.js"></script>
 </body>
 </html>

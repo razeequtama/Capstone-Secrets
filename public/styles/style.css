@@ -1,0 +1,1521 @@
+/* =====================================================
+   CAPSTONE - SECRETS
+   Modern Glassmorphism UI
+   Part 1/3
+===================================================== */
+
+/*=============================
+    CSS VARIABLES
+==============================*/
+
+:root{
+
+    --bg:#07111f;
+    --bg-secondary:#0d1728;
+    --card:rgba(20,30,50,.72);
+
+    --primary:#6c63ff;
+    --primary-light:#8b83ff;
+
+    --secondary:#38bdf8;
+
+    --success:#22c55e;
+    --warning:#facc15;
+    --danger:#ef4444;
+
+    --text:#eef4ff;
+    --text-muted:#9caec7;
+
+    --border:rgba(255,255,255,.08);
+
+    --radius:18px;
+
+    --shadow:
+        0 12px 35px rgba(0,0,0,.35);
+
+    --transition:.35s ease;
+}
+
+/*=============================
+        RESET
+==============================*/
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+    Inter,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+    color:var(--text);
+
+    background:
+    radial-gradient(circle at top left,#172554 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#312e81 0%,transparent 35%),
+    linear-gradient(145deg,#050b16,#0b1424,#101b2d);
+
+    overflow-x:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
+
+    position:relative;
+}
+
+/*=============================
+ Animated Background
+==============================*/
+
+body::before,
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:.25;
+
+    z-index:-2;
+
+    animation:floatBlob 14s ease-in-out infinite;
+}
+
+body::before{
+
+    background:#6c63ff;
+
+    top:-150px;
+    left:-150px;
+}
+
+body::after{
+
+    background:#38bdf8;
+
+    bottom:-150px;
+    right:-150px;
+
+    animation-delay:6s;
+}
+
+@keyframes floatBlob{
+
+    0%{
+
+        transform:
+        translateY(0)
+        scale(1);
+    }
+
+    50%{
+
+        transform:
+        translateY(50px)
+        scale(1.15);
+    }
+
+    100%{
+
+        transform:
+        translateY(0)
+        scale(1);
+    }
+
+}
+
+/*=============================
+    CARD CONTAINER
+==============================*/
+
+/* Wrap your page contents inside
+<div class="container">
+
+...
+</div>
+
+*/
+
+.container{
+
+    width:min(500px,100%);
+
+    background:var(--card);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:42px;
+
+    box-shadow:var(--shadow);
+
+    animation:fadeUp .8s ease;
+
+}
+
+/* Dashboard can override width */
+
+.container.dashboard{
+
+    width:min(900px,100%);
+}
+
+/*=============================
+        HEADINGS
+==============================*/
+
+h1{
+
+    text-align:center;
+
+    font-size:2.6rem;
+
+    margin-bottom:8px;
+
+    letter-spacing:.04em;
+
+    color:white;
+
+    font-weight:700;
+}
+
+h2{
+
+    text-align:center;
+
+    color:var(--secondary);
+
+    margin-bottom:32px;
+
+    font-size:1.25rem;
+
+    font-weight:500;
+}
+
+h3{
+
+    color:white;
+}
+
+p{
+
+    color:var(--text-muted);
+
+    line-height:1.7;
+}
+
+/*=============================
+        FORM
+==============================*/
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    width:100%;
+}
+
+.secret{
+
+    margin-top:18px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.secret:last-child{
+
+    margin-bottom:0;
+}
+
+label{
+
+    font-size:.95rem;
+
+    color:#d7e3ff;
+
+    font-weight:600;
+
+    margin-bottom:6px;
+
+    display:block;
+}
+
+/*=============================
+        INPUTS
+==============================*/
+
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.05);
+
+    color:white;
+
+    font-size:1rem;
+
+    outline:none;
+
+    transition:var(--transition);
+}
+
+input::placeholder{
+
+    color:#9aa8c5;
+}
+
+input:hover{
+
+    border-color:#5f78ff;
+}
+
+input:focus{
+
+    border-color:var(--secondary);
+
+    background:rgba(255,255,255,.08);
+
+    box-shadow:
+    0 0 0 4px rgba(56,189,248,.15);
+}
+
+/*=============================
+        BUTTONS
+==============================*/
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+    outline:none;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        #4f46e5
+    );
+
+    transition:var(--transition);
+
+    box-shadow:
+    0 10px 25px rgba(79,70,229,.35);
+}
+
+button:hover{
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 18px 40px rgba(79,70,229,.45);
+}
+
+button:active{
+
+    transform:scale(.98);
+}
+
+/*=============================
+        LINKS
+==============================*/
+
+a{
+
+    color:var(--secondary);
+
+    text-decoration:none;
+
+    transition:.25s;
+}
+
+a:hover{
+
+    color:white;
+}
+
+body > p{
+
+    margin-top:24px;
+
+    text-align:center;
+}
+
+/*=============================
+    ERROR MESSAGE
+==============================*/
+
+#error-message{
+
+    margin-top:18px;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    background:
+    rgba(239,68,68,.12);
+
+    border:
+    1px solid rgba(239,68,68,.25);
+
+    color:#ffb4b4;
+
+    text-align:center;
+}
+
+/*=============================
+Password Strength Placeholder
+==============================*/
+
+#password-detector{
+
+    margin-top:10px;
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+/*=============================
+        HIDDEN INPUTS
+==============================*/
+
+input[type="hidden"]{
+
+    display:none;
+}
+
+/*=============================
+        ANIMATIONS
+==============================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(25px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+    }
+}
+
+.fade-in{
+
+    animation:
+    fadeUp
+    .6s ease;
+}
+
+/*=============================
+    SELECTION COLOR
+==============================*/
+
+::selection{
+
+    background:
+    rgba(108,99,255,.4);
+
+    color:white;
+}
+
+/*=============================
+        SCROLLBAR
+==============================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+
+    background:#09111d;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#4557ff;
+
+    border-radius:30px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#6574ff;
+}
+
+/* =====================================================
+   CAPSTONE - SECRETS
+   Modern Glassmorphism UI
+   Part 2/3
+===================================================== */
+
+
+/*=========================================
+    DASHBOARD LAYOUT
+=========================================*/
+
+.container.dashboard{
+
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+
+    max-width:900px;
+
+}
+
+/* Secret list wrapper (optional)
+   Wrap secrets in:
+   <div class="secret-list">...</div>
+*/
+
+.secret-list{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fill,minmax(300px,1fr));
+
+    gap:22px;
+
+    margin-top:15px;
+
+}
+
+
+/*=========================================
+        SECRET CARD
+=========================================*/
+
+.secret{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:22px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.03)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(14px);
+
+    transition:
+        transform .35s,
+        box-shadow .35s,
+        border-color .35s;
+
+    overflow:hidden;
+
+}
+
+.secret::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(108,99,255,.10),
+            transparent 60%
+        );
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+.secret:hover{
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(108,99,255,.45);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.35);
+
+}
+
+.secret:hover::before{
+
+    opacity:1;
+
+}
+
+.secret p{
+
+    color:white;
+
+    font-size:1.02rem;
+
+    line-height:1.7;
+
+    word-wrap:break-word;
+
+    z-index:1;
+
+}
+
+
+/*=========================================
+    SECRET FORM INSIDE CARD
+=========================================*/
+
+.secret form{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin:0;
+
+    z-index:1;
+
+}
+
+.secret button{
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #dc2626
+        );
+
+    padding:10px 18px;
+
+    font-size:.92rem;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 8px 20px rgba(220,38,38,.25);
+
+}
+
+.secret button:hover{
+
+    box-shadow:
+        0 14px 30px rgba(220,38,38,.35);
+
+}
+
+
+/*=========================================
+        ADD SECRET FORM
+=========================================*/
+
+form[action="/dashboard"]{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap:16px;
+
+    align-items:end;
+
+}
+
+form[action="/dashboard"] label{
+
+    grid-column:1/-1;
+
+    margin-bottom:-4px;
+
+}
+
+#secret-input{
+
+    min-height:54px;
+
+}
+
+form[action="/dashboard"] button{
+
+    min-width:140px;
+
+}
+
+
+/*=========================================
+        LOGOUT BUTTON
+=========================================*/
+
+form[action="/logout"]{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-bottom:8px;
+
+}
+
+form[action="/logout"] button{
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    padding:12px 22px;
+
+    box-shadow:none;
+
+}
+
+form[action="/logout"] button:hover{
+
+    background:
+        rgba(239,68,68,.18);
+
+    border-color:
+        rgba(239,68,68,.45);
+
+}
+
+
+/*=========================================
+        PASSWORD STRENGTH
+=========================================*/
+
+#password-detector{
+
+    margin-top:6px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+}
+
+#password-detector:empty{
+
+    display:none;
+
+}
+
+
+/* JS writes:
+Password Strength: Weak
+Password Strength: Normal
+Password Strength: Strong
+
+We color them using attribute selectors.
+*/
+
+#password-detector{
+
+    color:var(--text-muted);
+
+}
+
+#password-detector:not(:empty){
+
+    animation:
+        fadeStrength .25s ease;
+
+}
+
+#password-detector[data-strength="weak"]{
+
+    color:#ef4444;
+
+}
+
+#password-detector[data-strength="normal"]{
+
+    color:#facc15;
+
+}
+
+#password-detector[data-strength="strong"]{
+
+    color:#22c55e;
+
+}
+
+
+/*=========================================
+        FLASH ERRORS
+=========================================*/
+
+#error-message{
+
+    animation:
+        shake .35s;
+
+}
+
+@keyframes shake{
+
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-6px);}
+    50%{transform:translateX(6px);}
+    75%{transform:translateX(-4px);}
+    100%{transform:translateX(0);}
+
+}
+
+
+/*=========================================
+        FADE ANIMATION
+=========================================*/
+
+@keyframes fadeStrength{
+
+    from{
+
+        opacity:0;
+        transform:translateY(-4px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*=========================================
+        NICE HORIZONTAL RULE
+=========================================*/
+
+hr{
+
+    border:none;
+
+    height:1px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    margin:25px 0;
+
+}
+
+
+/*=========================================
+        SMALL TEXT
+=========================================*/
+
+small{
+
+    color:var(--text-muted);
+
+}
+
+
+/*=========================================
+        GLASS HIGHLIGHT
+=========================================*/
+
+.container::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,.08),
+            transparent 35%
+        );
+
+}
+
+
+/*=========================================
+        ICON READY
+=========================================*/
+
+button svg{
+
+    width:18px;
+
+    height:18px;
+
+    vertical-align:middle;
+
+}
+
+
+/*=========================================
+        HOVER GLOW
+=========================================*/
+
+input:hover,
+button:hover{
+
+    transition:
+        all .3s ease;
+
+}
+
+
+/*=========================================
+        MOBILE TABLET
+=========================================*/
+
+@media (max-width:900px){
+
+.secret-list{
+
+    grid-template-columns:1fr;
+
+}
+
+.container.dashboard{
+
+    max-width:650px;
+
+}
+
+}
+
+
+/*=========================================
+        PHONE
+=========================================*/
+
+@media (max-width:600px){
+
+.container{
+
+    padding:28px;
+
+}
+
+form[action="/dashboard"]{
+
+    grid-template-columns:1fr;
+
+}
+
+form[action="/dashboard"] button{
+
+    width:100%;
+
+}
+
+.secret{
+
+    padding:18px;
+
+}
+
+}
+
+/* =====================================================
+   CAPSTONE - SECRETS
+   Modern Glassmorphism UI
+   Part 3/3
+===================================================== */
+
+
+/*=========================================
+        PAGE TRANSITIONS
+=========================================*/
+
+.container{
+
+    animation:
+        pageLoad .8s ease;
+}
+
+@keyframes pageLoad{
+
+    from{
+
+        opacity:0;
+        transform:
+            translateY(30px)
+            scale(.97);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/*=========================================
+        BUTTON SHINE EFFECT
+=========================================*/
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:60%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.25),
+            transparent
+        );
+
+    transition:.7s;
+
+}
+
+button:hover::before{
+
+    left:140%;
+
+}
+
+
+/*=========================================
+        INPUT ICON SPACE
+=========================================*/
+
+input{
+
+    appearance:none;
+
+}
+
+
+/*=========================================
+        INPUT ANIMATION
+=========================================*/
+
+input{
+
+    transition:
+        border-color .3s,
+        box-shadow .3s,
+        background .3s,
+        transform .2s;
+
+}
+
+input:focus{
+
+    transform:translateY(-2px);
+
+}
+
+
+/*=========================================
+        SECRET APPEAR ANIMATION
+=========================================*/
+
+.secret{
+
+    animation:
+        cardFade .6s ease;
+
+}
+
+@keyframes cardFade{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/*=========================================
+        SECRET TEXT SELECTION
+=========================================*/
+
+.secret p::selection{
+
+    background:
+        rgba(56,189,248,.35);
+
+}
+
+
+/*=========================================
+        SECRET CARD BORDER GLOW
+=========================================*/
+
+.secret:hover{
+
+    border-color:
+        rgba(56,189,248,.45);
+
+}
+
+
+/*=========================================
+        FORM SPACING
+=========================================*/
+
+form + form{
+
+    margin-top:20px;
+
+}
+
+
+/*=========================================
+        PARAGRAPH SPACING
+=========================================*/
+
+.container p{
+
+    margin-top:12px;
+
+}
+
+
+/*=========================================
+        LINK ANIMATION
+=========================================*/
+
+a{
+
+    position:relative;
+
+}
+
+a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-3px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--secondary);
+
+    transition:.3s;
+
+}
+
+a:hover::after{
+
+    width:100%;
+
+}
+
+
+/*=========================================
+        BUTTON DISABLED
+=========================================*/
+
+button:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+    box-shadow:none;
+
+}
+
+
+/*=========================================
+        FOCUS ACCESSIBILITY
+=========================================*/
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible{
+
+    outline:3px solid rgba(56,189,248,.5);
+
+    outline-offset:4px;
+
+}
+
+
+/*=========================================
+        PLACEHOLDER ANIMATION
+=========================================*/
+
+input::placeholder{
+
+    transition:.25s;
+
+}
+
+input:focus::placeholder{
+
+    opacity:.45;
+
+}
+
+
+/*=========================================
+        DASHBOARD TITLE
+=========================================*/
+
+.container.dashboard h1{
+
+    margin-bottom:18px;
+
+}
+
+
+/*=========================================
+        LOGIN / REGISTER SPACING
+=========================================*/
+
+.container h2{
+
+    margin-bottom:28px;
+
+}
+
+
+/*=========================================
+        PASSWORD DETECTOR
+=========================================*/
+
+#password-detector{
+
+    min-height:22px;
+
+}
+
+
+/*=========================================
+        ERROR MESSAGE ANIMATION
+=========================================*/
+
+#error-message{
+
+    transition:
+        opacity .3s,
+        transform .3s;
+
+}
+
+
+/*=========================================
+        HORIZONTAL FLEX HELPERS
+=========================================*/
+
+.flex{
+
+    display:flex;
+    gap:16px;
+    align-items:center;
+}
+
+.flex-between{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+
+/*=========================================
+        FADE UTILITIES
+=========================================*/
+
+.fade{
+
+    animation:
+        fadeUp .5s ease;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+
+/*=========================================
+        RESPONSIVE
+=========================================*/
+
+@media (max-width:768px){
+
+body{
+
+    padding:24px;
+
+}
+
+h1{
+
+    font-size:2rem;
+
+}
+
+h2{
+
+    font-size:1.1rem;
+
+}
+
+.container{
+
+    border-radius:16px;
+
+}
+
+button{
+
+    width:100%;
+
+}
+
+}
+
+
+/*=========================================
+        SMALL DEVICES
+=========================================*/
+
+@media (max-width:480px){
+
+body{
+
+    padding:18px;
+
+}
+
+.container{
+
+    padding:22px;
+
+}
+
+h1{
+
+    font-size:1.8rem;
+
+}
+
+input{
+
+    font-size:.95rem;
+
+}
+
+button{
+
+    font-size:.95rem;
+
+}
+
+.secret{
+
+    padding:16px;
+
+}
+
+}
+
+
+/*=========================================
+        REDUCED MOTION
+=========================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+*{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+}
+
+}
+
+
+/*=========================================
+        PRINT
+=========================================*/
+
+@media print{
+
+body{
+
+    background:white;
+
+}
+
+.container{
+
+    box-shadow:none;
+
+    background:white;
+
+    color:black;
+
+}
+
+button{
+
+    display:none;
+
+}
+
+}
+
+
+/*=========================================
+        END
+=========================================*/
