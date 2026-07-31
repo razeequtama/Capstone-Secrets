@@ -315,6 +315,10 @@ What is being added/fixed:
 What is being added/fixed:
 - Added modern UI frontend design to the website
 
+## Commit 16: Add OAuth 2.0 Register/Login Feature
+What is being added/fixed:
+- Added the ability to Register / Log In with Google's OAuth 2.0
+
 ---
 
 ## License

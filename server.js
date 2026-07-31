@@ -58,6 +58,17 @@ app.get("/", (req, res) => {
     res.redirect("/login");
 })
 
+app.get("/auth/google", passport.authenticate("google", 
+    { 
+        scope: ["profile", "email"]
+    }
+));
+
+app.get("/auth/google/secrets",
+    passport.authenticate("google",{ failureRedirect: "/login" }), (req, res) => {
+    res.redirect("/dashboard");
+});
+
 app.use("/login", loginRoute);
 app.use("/api", apiRoute);
 app.use("/register", registerRoute);
